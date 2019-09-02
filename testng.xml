@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<parameter name="browser" value="chrome" />
+	<test name="Test">
+		<!-- <groups> <run> <include name="smoke" /> </run> </groups> -->
+		<classes>
+			<!-- <class name="com.investaSolutions.assetManagerPortal.tests.LoginTest" />
+			 <class name="com.investaSolutions.assetManagerPortal.tests.AMPortalTest" />
+			<class name="com.investaSolutions.assetManagerPortal.tests.DisconnectTest" />			
+			<class name="com.investaSolutions.assetManagerPortal.tests.AMInstrumentManagementTest" />
+			<class name="com.investaSolutions.assetManagerPortal.tests.AMPortfolioModelApprovalTest" /> 
+			<class name="com.investaSolutions.assetManagerPortal.tests.AMProfileTest" />
+			<class name="com.investaSolutions.assetManagerPortal.tests.AMStrategyManagementTest" />
+			<class name="com.investaSolutions.assetManagerPortal.tests.AMPortfolioModelManagementTest" /> 
+			<class name="com.investaSolutions.assetManagerPortal.tests.AMStrategyManagementTest" />	 			
+			<class name="com.investaSolutions.assetManagerPortal.tests.AMPortfolioModelManagementTest" /> 	 -->
+			
+			
+			<!-- <class name="com.investaSolutions.bankPortal.tests.BankPortalTest" /> -->
+			
+			<!-- <class name="com.investaSolutions.bankPortal.tests.BankModelsTest" />			
+			<class name="com.investaSolutions.bankPortal.tests.BankPMConfigurationTest" />
+			<class name="com.investaSolutions.bankPortal.tests.BankRiskTest" />-->
+			
+			<!-- <class name="com.investaSolutions.adminPortal.tests.AdminPortalTest" />
+			<class name="com.investaSolutions.adminPortal.tests.AdminBankManagementTest" />
+			<class name="com.investaSolutions.adminPortal.tests.AdminAMManagementTest" />
+			<class name="com.investaSolutions.adminPortal.tests.AdminSoftwareVendorsTest" />
+			<class name="com.investaSolutions.adminPortal.tests.AdminUserManagementTest" /> 
+			<class name="com.investaSolutions.adminPortal.tests.AdminInstrumentManagementTest" />
+			<class name="com.investaSolutions.adminPortal.tests.AdminBenchmarkManagementTest" />-->
+			<!-- <class name="com.investaSolutions.assetManagerPortal.tests.AMAssetManagerTest" /> -->
+			<class name="com.investaSolutions.bankPortal.tests.BankPortalTest" />
+		</classes>
+	</test>
+</suite> 
