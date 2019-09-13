@@ -17,7 +17,7 @@ public class BankPortalTest extends TestBase {
 
 	HashMap<String, String> testData;
 
-	// @Test(groups = { "regression", "smoke", "bank" }, priority = 1)
+	 //@Test(groups = { "regression", "smoke", "bank" }, priority = 1)
 	// TC This test verifies the details present on the Bank Portal's home page
 	public void verifyBankPortalDetailsTest() throws Throwable {
 		try {

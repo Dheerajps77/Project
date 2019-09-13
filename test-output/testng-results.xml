@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="1" passed="1" failed="0" skipped="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-08-30T12:56:59Z" name="Suite" finished-at="2019-08-30T12:57:20Z" duration-ms="21319">
+  <suite name="Suite" duration-ms="26651" started-at="2019-09-13T12:56:39Z" finished-at="2019-09-13T12:57:06Z">
     <groups>
       <group name="bank">
-        <method signature="BankPortalTest.verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@55f616cf]" name="verifyDetailsPresentOnAMProfilePageTest" class="com.investaSolutions.bankPortal.tests.BankPortalTest"/>
+        <method signature="BankPortalTest.verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="verifyDetailsPresentOnAMProfilePageTest" class="com.investaSolutions.bankPortal.tests.BankPortalTest"/>
       </group> <!-- bank -->
       <group name="regression">
-        <method signature="BankPortalTest.verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@55f616cf]" name="verifyDetailsPresentOnAMProfilePageTest" class="com.investaSolutions.bankPortal.tests.BankPortalTest"/>
+        <method signature="BankPortalTest.verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="verifyDetailsPresentOnAMProfilePageTest" class="com.investaSolutions.bankPortal.tests.BankPortalTest"/>
       </group> <!-- regression -->
       <group name="smoke">
-        <method signature="BankPortalTest.verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@55f616cf]" name="verifyDetailsPresentOnAMProfilePageTest" class="com.investaSolutions.bankPortal.tests.BankPortalTest"/>
+        <method signature="BankPortalTest.verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="verifyDetailsPresentOnAMProfilePageTest" class="com.investaSolutions.bankPortal.tests.BankPortalTest"/>
       </group> <!-- smoke -->
     </groups>
-    <test started-at="2019-08-30T12:56:59Z" name="Test" finished-at="2019-08-30T12:57:20Z" duration-ms="21319">
+    <test name="Test" duration-ms="26651" started-at="2019-09-13T12:56:39Z" finished-at="2019-09-13T12:57:06Z">
       <class name="com.investaSolutions.bankPortal.tests.BankPortalTest">
-        <test-method is-config="true" signature="beforeSuite(java.lang.String)[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@55f616cf]" started-at="2019-08-30T18:26:54Z" name="beforeSuite" finished-at="2019-08-30T18:26:59Z" duration-ms="4397" status="PASS">
+        <test-method status="PASS" signature="beforeSuite(java.lang.String)[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="beforeSuite" is-config="true" duration-ms="4530" started-at="2019-09-13T18:26:35Z" finished-at="2019-09-13T18:26:39Z">
           <params>
             <param index="0">
               <value>
@@ -27,22 +27,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method signature="verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@55f616cf]" started-at="2019-08-30T18:26:59Z" name="verifyDetailsPresentOnAMProfilePageTest" finished-at="2019-08-30T18:27:20Z" duration-ms="21190" status="PASS">
+        <test-method status="PASS" signature="verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="verifyDetailsPresentOnAMProfilePageTest" duration-ms="26508" started-at="2019-09-13T18:26:39Z" finished-at="2019-09-13T18:27:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyDetailsPresentOnAMProfilePageTest -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@55f616cf]" started-at="2019-08-30T18:27:20Z" name="afterMethod" finished-at="2019-08-30T18:27:20Z" duration-ms="128" status="PASS">
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="afterMethod" is-config="true" duration-ms="123" started-at="2019-09-13T18:27:06Z" finished-at="2019-09-13T18:27:06Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyDetailsPresentOnAMProfilePageTest status=SUCCESS method=BankPortalTest.verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@55f616cf] output={null}]]]>
+                <![CDATA[[TestResult name=verifyDetailsPresentOnAMProfilePageTest status=SUCCESS method=BankPortalTest.verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="generateReport()[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@55f616cf]" started-at="2019-08-30T18:27:20Z" name="generateReport" finished-at="2019-08-30T18:27:26Z" duration-ms="5716" status="PASS">
+        <test-method status="PASS" signature="generateReport()[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="generateReport" is-config="true" duration-ms="4255" started-at="2019-09-13T18:27:06Z" finished-at="2019-09-13T18:27:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateReport -->

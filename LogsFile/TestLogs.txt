@@ -3072,3 +3072,53 @@ Session ID: 3cc4aaa54d4dcc23b825219e91d72e02
 2019-08-30 18:27:20 INFO  Logger:213 - MorningStar Title verification passed.Expected details : [morningstar], Actual details : [morningstar]
 2019-08-30 18:27:20 INFO  Logger:213 - Our WebSite link verification passed
 2019-08-30 18:27:20 INFO  Logger:168 - User logged out successfully
+2019-09-13 18:19:01 INFO  Logger:77 - Getting OS name
+2019-09-13 18:19:07 INFO  Logger:83 - Windows OS
+2019-09-13 18:19:12 INFO  Logger:204 - Test [Verify Bank Portal Page details] has been started
+2019-09-13 18:19:24 INFO  Logger:213 - User [ john.doe@abcbank.com ] logged in successfully
+2019-09-13 18:19:25 ERROR Logger:218 - Exception occurred
+2019-09-13 18:19:25 INFO  Logger:145 - Test verifyBankPortalDetailsTest module has been started
+2019-09-13 18:19:25 INFO  Logger:149 - Test verifyBankPortalDetailsTest module has been failed
+2019-09-13 18:19:25 INFO  Logger:150 - java.lang.AssertionError: Bank Portal Page Details Verification Failed. Expected Details to be displayed were [ Dashboard, Settings, Instruments, Models, Rebalance, Risk, Users, Disconnect ] expected [true] but found [false]
+2019-09-13 18:19:26 INFO  Logger:168 - User logged out successfully
+2019-09-13 18:20:07 INFO  Logger:77 - Getting OS name
+2019-09-13 18:20:11 INFO  Logger:83 - Windows OS
+2019-09-13 18:20:13 INFO  Logger:204 - Test [Verify Bank Portal Page details] has been started
+2019-09-13 18:20:20 INFO  Logger:213 - User [ john.doe@abcbank.com ] logged in successfully
+2019-09-13 18:21:36 INFO  Logger:213 - Bank Portal Page Details verified successfully. Expected values to be displayed : [ Dashboard, Settings, Instruments, Models, Rebalance, Risk, Users, Disconnect ], Actual values displayed : [ Dashboard, Settings, Instruments, Models, Rebalance, Risk, Users, Disconnect ]
+2019-09-13 18:21:42 INFO  Logger:168 - User logged out successfully
+2019-09-13 18:22:46 INFO  Logger:77 - Getting OS name
+2019-09-13 18:22:49 INFO  Logger:83 - Windows OS
+2019-09-13 18:22:52 INFO  Logger:204 - Test [Verify Bank Portal Page details] has been started
+2019-09-13 18:23:03 INFO  Logger:213 - User [ john.doe@abcbank.com ] logged in successfully
+2019-09-13 18:23:03 ERROR Logger:218 - Exception occurred
+2019-09-13 18:23:03 INFO  Logger:145 - Test verifyBankPortalDetailsTest module has been started
+2019-09-13 18:23:03 INFO  Logger:149 - Test verifyBankPortalDetailsTest module has been failed
+2019-09-13 18:23:03 INFO  Logger:150 - java.lang.AssertionError: Bank Portal Page Details Verification Failed. Expected Details to be displayed were [ Dashboard, Settings, Instruments, Models, Rebalance, Risk, Users, Disconnect ] expected [true] but found [false]
+2019-09-13 18:23:07 INFO  Logger:168 - User logged out successfully
+2019-09-13 18:25:06 INFO  Logger:77 - Getting OS name
+2019-09-13 18:25:09 INFO  Logger:83 - Windows OS
+2019-09-13 18:25:11 INFO  Logger:204 - Test [Verify Bank Portal Page details] has been started
+2019-09-13 18:25:21 INFO  Logger:213 - User [ john.doe@abcbank.com ] logged in successfully
+2019-09-13 18:25:23 ERROR Logger:218 - Exception occurred
+2019-09-13 18:25:23 INFO  Logger:145 - Test verifyBankPortalDetailsTest module has been started
+2019-09-13 18:25:23 INFO  Logger:149 - Test verifyBankPortalDetailsTest module has been failed
+2019-09-13 18:25:23 INFO  Logger:150 - java.lang.AssertionError: Bank Portal Page Details Verification Failed. Expected Details to be displayed were [ Dashboard, Settings, Instruments, Models, Rebalance, Risk, Users, Disconnect ] expected [true] but found [false]
+2019-09-13 18:25:24 INFO  Logger:168 - User logged out successfully
+2019-09-13 18:26:35 INFO  Logger:77 - Getting OS name
+2019-09-13 18:26:38 INFO  Logger:83 - Windows OS
+2019-09-13 18:26:41 INFO  Logger:204 - Test [This test is details present on AMProfile page or not] has been started
+2019-09-13 18:26:48 INFO  Logger:213 - User [ john.doe@abcbank.com ] logged in successfully
+2019-09-13 18:26:55 INFO  Logger:213 - [Settings] tab button is present in the page and verification is passed
+2019-09-13 18:26:55 INFO  Logger:213 - Settings tab title verification passed. Expected details : [Settings], Actual details : [Settings]
+2019-09-13 18:26:57 INFO  Logger:213 - Clicked on [Settings] tab button verification is passed
+2019-09-13 18:26:58 INFO  Logger:213 - Dropdown Values [Portfolio Model Configuration] in Setting tab verification is passed
+2019-09-13 18:26:58 INFO  Logger:213 - pm-Configuration page opened with fraction value [pm-configuration] which is present in the URL and url verification passed.Expected details : [https://bank.qa.investasolutions.com/#/pm-configuration], Actual details : [https://bank.qa.investasolutions.com/#/pm-configuration]
+2019-09-13 18:26:58 INFO  Logger:213 - PM Configuration Title verification passed.Expected details : [PM Configuration], Actual details : [PM Configuration]
+2019-09-13 18:26:58 INFO  Logger:213 - Global filter search textbox is present
+2019-09-13 18:27:01 INFO  Logger:213 - Column cells are populating under table after searching [MorningStar] in PM-Configuration page and verification is passed
+2019-09-13 18:27:01 INFO  Logger:213 - Clicked on Search-Plus button verification passed
+2019-09-13 18:27:06 INFO  Logger:213 - AMProfile Tab Title is present and clicked on tab verification passed.Expected details : [AM Profile], Actual details : [AM Profile]
+2019-09-13 18:27:06 INFO  Logger:213 - MorningStar Title verification passed.Expected details : [morningstar], Actual details : [morningstar]
+2019-09-13 18:27:06 INFO  Logger:213 - Our WebSite link verification passed
+2019-09-13 18:27:06 INFO  Logger:168 - User logged out successfully
