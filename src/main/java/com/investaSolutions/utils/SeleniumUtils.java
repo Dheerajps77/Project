@@ -27,7 +27,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.investaSolutions.base.TestBase;
 
-
 public class SeleniumUtils {
 	public static PropertiesManager properties = PropertiesManager.getInstance();
 
@@ -63,25 +62,24 @@ public class SeleniumUtils {
 		return count;
 	}
 
-	public static void switchWindowByIndex(WebDriver driver,int windowno)
-	{
-		Set<String> window=driver.getWindowHandles();
+	public static void switchWindowByIndex(WebDriver driver, int windowno) {
+		Set<String> window = driver.getWindowHandles();
 		driver.switchTo().window(window.toArray()[windowno].toString());
 	}
 
-	public static void closeCurrentBrowserTab(WebDriver driver){
+	public static void closeCurrentBrowserTab(WebDriver driver) {
 		driver.close();
 	}
 
-	public static String getCurrentPageTitle(WebDriver driver){
+	public static String getCurrentPageTitle(WebDriver driver) {
 		return driver.getTitle();
 	}
 
-	public static String fetchUserDetails(String key){
+	public static String fetchUserDetails(String key) {
 
 		FileInputStream file = null;
 		try {
-			file = new FileInputStream(System.getProperty("user.dir") + properties.getConfig("CONFIG_PROPERTIES_PATH")); 
+			file = new FileInputStream(System.getProperty("user.dir") + properties.getConfig("CONFIG_PROPERTIES_PATH"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -94,7 +92,7 @@ public class SeleniumUtils {
 		return property.getProperty(key);
 	}
 
-	public static long getLoadTimeInSeconds(WebDriver driver, By waitForLoadElement,int waitInSeconds){
+	public static long getLoadTimeInSeconds(WebDriver driver, By waitForLoadElement, int waitInSeconds) {
 		StopWatch pageLoad = new StopWatch();
 		pageLoad.start();
 		SeleniumUtils.waitForElementVisibility(driver, waitForLoadElement, waitInSeconds);
@@ -104,25 +102,24 @@ public class SeleniumUtils {
 		return pageLoadTime_Seconds;
 	}
 
-	public static WebElement scrollToViewElement(WebDriver driver, By findByCondition){
+	public static WebElement scrollToViewElement(WebDriver driver, By findByCondition) {
 		WebElement element = driver.findElement(findByCondition);
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		return driver.findElement(findByCondition);
 	}
 
-	public static void scrollUp(WebDriver driver) throws InterruptedException, AWTException{
+	public static void scrollUp(WebDriver driver) throws InterruptedException, AWTException {
 		Thread.sleep(2000);
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,-250)", "");
 	}
 
-	public static void scrollToBottom(WebDriver driver) throws InterruptedException, AWTException{
-		((JavascriptExecutor) driver)
-		.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	public static void scrollToBottom(WebDriver driver) throws InterruptedException, AWTException {
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		Thread.sleep(2000);
 	}
 
-	public static boolean isElementPresent(WebDriver driver,By locator){
+	public static boolean isElementPresent(WebDriver driver, By locator) {
 		turnOffImplicitWaits(driver);
 		boolean result = false;
 		try {
@@ -130,7 +127,7 @@ public class SeleniumUtils {
 			result = true;
 		} catch (Exception e) {
 			turnOnImplicitWaits(driver);
-		}finally {
+		} finally {
 			turnOnImplicitWaits(driver);
 		}
 		return result;
@@ -156,24 +153,24 @@ public class SeleniumUtils {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(driver.findElement(locator));
 		actions.click();
-		actions.sendKeys(driver.findElement(locator),data).build().perform();
-		//actions.build().perform();
+		actions.sendKeys(driver.findElement(locator), data).build().perform();
+		// actions.build().perform();
 	}
 
-	public static final void clickAndEnterText(WebDriver driver, By findByCondition, int waitInSeconds, String text) throws InterruptedException {
+	public static final void clickAndEnterText(WebDriver driver, By findByCondition, int waitInSeconds, String text)
+			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, waitInSeconds);
 		wait.until(ExpectedConditions.elementToBeClickable(findByCondition));
 		Actions actions = new Actions(driver);
 		WebElement we = driver.findElement(findByCondition);
 		actions.moveToElement(we);
-		//actions.click();
+		// actions.click();
 		Thread.sleep(1000);
 		we.clear();
 		Thread.sleep(1000);
 		actions.sendKeys(driver.findElement(findByCondition), (text)).build().perform();
-		//actions.build().perform();
+		// actions.build().perform();
 	}
-
 
 	public static int getCountOfWebElements(WebDriver driver, By locator) {
 		List<WebElement> we = driver.findElements(locator);
@@ -188,7 +185,8 @@ public class SeleniumUtils {
 		if (!theDir.exists()) {
 			theDir.mkdir();
 		}
-		String destination = System.getProperty("user.dir") + properties.getConfig("FAILEDTEST_SCREENSHOTS_PATH") + "/" + screenshotName + ".png";
+		String destination = System.getProperty("user.dir") + properties.getConfig("FAILEDTEST_SCREENSHOTS_PATH") + "/"
+				+ screenshotName + ".png";
 		File finalDestination = new File(destination);
 		FileUtils.copyFile(source, finalDestination);
 		return destination;
@@ -196,41 +194,38 @@ public class SeleniumUtils {
 
 	public static void actionScrollToBottom(WebDriver driver) {
 		Actions actions = new Actions(driver);
-		for(int i=1;i<=100;i++) {
+		for (int i = 1; i <= 100; i++) {
 			actions.sendKeys(Keys.PAGE_DOWN).perform();
 		}
 	}
 
 	public static void actionScrollToTop(WebDriver driver) {
 		Actions actions = new Actions(driver);
-		for(int i=1;i<=100;i++) {
+		for (int i = 1; i <= 100; i++) {
 			actions.sendKeys(Keys.PAGE_UP).perform();
 		}
 	}
 
-	public String getTitleText(WebDriver driver, By locator) throws Exception
-	{
-		String titleText="";
+	public String getTitleText(WebDriver driver, By locator) throws Exception {
+		String titleText = "";
 		WebElement element;
 		try {
-			element=driver.findElement(locator);
-			titleText=element.getText();
+			element = driver.findElement(locator);
+			titleText = element.getText();
 		} catch (Exception e) {
 			throw e;
 		}
 		return titleText;
 	}
 
-	public boolean isElementDisplayed(WebDriver driver, By locator) throws Exception
-	{
+	public boolean isElementDisplayed(WebDriver driver, By locator) throws Exception {
 		WebElement element;
-		boolean flag=false;
+		boolean flag = false;
 		try {
-			element=driver.findElement(locator);
+			element = driver.findElement(locator);
 
-			if(element.isDisplayed())
-			{
-				flag=true;
+			if (element.isDisplayed()) {
+				flag = true;
 			}
 		} catch (Exception e) {
 			throw e;
@@ -270,16 +265,14 @@ public class SeleniumUtils {
 		return listOfFilesArray;
 	}
 
-	public boolean waitTillPageURLToBeLoad(WebDriver driver, String fraction, int waitInSeconds) throws Exception
-	{
+	public boolean waitTillPageURLToBeLoad(WebDriver driver, String fraction, int waitInSeconds) throws Exception {
 		boolean flag;
 		try {
 
-			WebDriverWait wait=new WebDriverWait(driver, waitInSeconds);
-			flag=wait.until(ExpectedConditions.urlContains(fraction)).booleanValue();	
-			if(flag)
-			{
-				flag=true;
+			WebDriverWait wait = new WebDriverWait(driver, waitInSeconds);
+			flag = wait.until(ExpectedConditions.urlContains(fraction)).booleanValue();
+			if (flag) {
+				flag = true;
 			}
 
 		} catch (Exception e) {
@@ -288,11 +281,10 @@ public class SeleniumUtils {
 		return flag;
 	}
 
-	public String getCurrentPageURL(WebDriver driver) throws Exception
-	{
-		String currentPageURL="";
+	public String getCurrentPageURL(WebDriver driver) throws Exception {
+		String currentPageURL = "";
 		try {
-			currentPageURL=driver.getCurrentUrl();
+			currentPageURL = driver.getCurrentUrl();
 		} catch (Exception e) {
 			throw e;
 		}
@@ -308,38 +300,36 @@ public class SeleniumUtils {
 		}
 	}
 
-	public static void waitAndClick(WebDriver driver, WebElement iwebElement,int time) throws InterruptedException
-	{
-		for (int i=0;i<=time;i++)
-		{
+	public static void waitAndClick(WebDriver driver, WebElement iwebElement, int time) throws InterruptedException {
+		for (int i = 0; i <= time; i++) {
 			Thread.sleep(500);
-			if (iwebElement.isDisplayed() && iwebElement.isEnabled())
-			{
+			if (iwebElement.isDisplayed() && iwebElement.isEnabled()) {
 				iwebElement.click();
 				break;
 			}
 		}
 	}
-	
-	// This will get a cell details of sepcific column from Table in pm-Configuration page
-		public ArrayList<String> getSepcificColumnCellDetailsFromTable(WebDriver driver) throws Exception
-		{
-			ArrayList<String> arrayList;
-			List<WebElement> tableCellText;
-			try {
-				arrayList=new ArrayList<String>();
-				tableCellText=driver.findElements(By.xpath("//div[@class='ui-table-wrapper ng-star-inserted']//tbody//tr//td[3]"));
-				int count=tableCellText.size();
-				for(int i=1;i<=count;i++)
-				{
-					WebElement element=driver.findElement(By.xpath("//div[@class='ui-table-wrapper ng-star-inserted']//tbody//tr["+i+"]//td[3]"));
-					String textValue=element.getText();
-					arrayList.add(textValue);
-				}
-				
-			} catch (Exception e) {
-				throw e;
+
+	// This will get a cell details of sepcific column from Table in
+	// pm-Configuration page
+	public ArrayList<String> getSepcificColumnCellDetailsFromTable(WebDriver driver) throws Exception {
+		ArrayList<String> arrayList;
+		List<WebElement> tableCellText;
+		try {
+			arrayList = new ArrayList<String>();
+			tableCellText = driver
+					.findElements(By.xpath("//div[@class='ui-table-wrapper ng-star-inserted']//tbody//tr//td[3]"));
+			int count = tableCellText.size();
+			for (int i = 1; i <= count; i++) {
+				WebElement element = driver.findElement(
+						By.xpath("//div[@class='ui-table-wrapper ng-star-inserted']//tbody//tr[" + i + "]//td[3]"));
+				String textValue = element.getText();
+				arrayList.add(textValue);
 			}
-			return arrayList;
+
+		} catch (Exception e) {
+			throw e;
 		}
+		return arrayList;
+	}
 }

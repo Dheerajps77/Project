@@ -3122,3 +3122,52 @@ Session ID: 3cc4aaa54d4dcc23b825219e91d72e02
 2019-09-13 18:27:06 INFO  Logger:213 - MorningStar Title verification passed.Expected details : [morningstar], Actual details : [morningstar]
 2019-09-13 18:27:06 INFO  Logger:213 - Our WebSite link verification passed
 2019-09-13 18:27:06 INFO  Logger:168 - User logged out successfully
+2019-09-13 18:57:33 INFO  Logger:77 - Getting OS name
+2019-09-13 18:57:46 INFO  Logger:83 - Windows OS
+2019-09-13 18:57:49 INFO  Logger:204 - Test [This test is details present on AMProfile page or not] has been started
+2019-09-13 18:57:55 INFO  Logger:213 - User [ john.doe@abcbank.com ] logged in successfully
+2019-09-13 18:57:58 INFO  Logger:213 - [Settings] tab button is present in the page and verification is passed
+2019-09-13 18:57:58 INFO  Logger:213 - Settings tab title verification passed. Expected details : [Settings], Actual details : [Settings]
+2019-09-13 18:57:59 INFO  Logger:213 - Clicked on [Settings] tab button verification is passed
+2019-09-13 18:58:00 INFO  Logger:213 - Dropdown Values [Portfolio Model Configuration] in Setting tab verification is passed
+2019-09-13 18:58:00 INFO  Logger:213 - pm-Configuration page opened with fraction value [pm-configuration] which is present in the URL and url verification passed.Expected details : [https://bank.qa.investasolutions.com/#/pm-configuration], Actual details : [https://bank.qa.investasolutions.com/#/pm-configuration]
+2019-09-13 18:58:00 INFO  Logger:213 - PM Configuration Title verification passed.Expected details : [PM Configuration], Actual details : [PM Configuration]
+2019-09-13 18:58:01 INFO  Logger:213 - Global filter search textbox is present
+2019-09-13 18:58:03 ERROR Logger:218 - Exception occurred
+2019-09-13 18:58:03 INFO  Logger:145 - Test verifyDetailsPresentOnAMProfilePageTest module has been started
+2019-09-13 18:58:03 INFO  Logger:149 - Test verifyDetailsPresentOnAMProfilePageTest module has been failed
+2019-09-13 18:58:03 INFO  Logger:150 - java.lang.AssertionError: Verify details present on AM Profile test is failed expected [true] but found [false]
+2019-09-13 18:58:03 INFO  Logger:168 - User logged out successfully
+2019-09-13 18:58:57 INFO  Logger:77 - Getting OS name
+2019-09-13 18:59:00 INFO  Logger:83 - Windows OS
+2019-09-13 18:59:02 INFO  Logger:204 - Test [This test is details present on AMProfile page or not] has been started
+2019-09-13 18:59:19 INFO  Logger:213 - User [ john.doe@abcbank.com ] logged in successfully
+2019-09-13 18:59:22 INFO  Logger:213 - [Settings] tab button is present in the page and verification is passed
+2019-09-13 18:59:22 INFO  Logger:213 - Settings tab title verification passed. Expected details : [Settings], Actual details : [Settings]
+2019-09-13 18:59:23 INFO  Logger:213 - Clicked on [Settings] tab button verification is passed
+2019-09-13 18:59:24 INFO  Logger:213 - Dropdown Values [Portfolio Model Configuration] in Setting tab verification is passed
+2019-09-13 18:59:24 INFO  Logger:213 - pm-Configuration page opened with fraction value [pm-configuration] which is present in the URL and url verification passed.Expected details : [https://bank.qa.investasolutions.com/#/pm-configuration], Actual details : [https://bank.qa.investasolutions.com/#/pm-configuration]
+2019-09-13 18:59:24 INFO  Logger:213 - PM Configuration Title verification passed.Expected details : [PM Configuration], Actual details : [PM Configuration]
+2019-09-13 18:59:24 INFO  Logger:213 - Global filter search textbox is present
+2019-09-13 18:59:27 ERROR Logger:218 - Exception occurred
+2019-09-13 18:59:27 INFO  Logger:145 - Test verifyDetailsPresentOnAMProfilePageTest module has been started
+2019-09-13 18:59:27 INFO  Logger:149 - Test verifyDetailsPresentOnAMProfilePageTest module has been failed
+2019-09-13 18:59:27 INFO  Logger:150 - java.lang.AssertionError: Verify details present on AM Profile test is failed expected [true] but found [false]
+2019-09-13 18:59:27 INFO  Logger:168 - User logged out successfully
+2019-09-13 19:01:18 INFO  Logger:77 - Getting OS name
+2019-09-13 19:01:23 INFO  Logger:83 - Windows OS
+2019-09-13 19:01:31 INFO  Logger:204 - Test [This test is details present on AMProfile page or not] has been started
+2019-09-13 19:01:38 INFO  Logger:213 - User [ john.doe@abcbank.com ] logged in successfully
+2019-09-13 19:01:41 INFO  Logger:213 - [Settings] tab button is present in the page and verification is passed
+2019-09-13 19:01:41 INFO  Logger:213 - Settings tab title verification passed. Expected details : [Settings], Actual details : [Settings]
+2019-09-13 19:01:42 INFO  Logger:213 - Clicked on [Settings] tab button verification is passed
+2019-09-13 19:01:43 INFO  Logger:213 - Dropdown Values [Portfolio Model Configuration] in Setting tab verification is passed
+2019-09-13 19:01:43 INFO  Logger:213 - pm-Configuration page opened with fraction value [pm-configuration] which is present in the URL and url verification passed.Expected details : [https://bank.qa.investasolutions.com/#/pm-configuration], Actual details : [https://bank.qa.investasolutions.com/#/pm-configuration]
+2019-09-13 19:01:44 INFO  Logger:213 - PM Configuration Title verification passed.Expected details : [PM Configuration], Actual details : [PM Configuration]
+2019-09-13 19:01:44 INFO  Logger:213 - Global filter search textbox is present
+2019-09-13 19:01:46 INFO  Logger:213 - Column cells are populating under table after searching [MorningStar] in PM-Configuration page and verification is passed
+2019-09-13 19:01:47 INFO  Logger:213 - Clicked on Search-Plus button verification passed
+2019-09-13 19:01:52 INFO  Logger:213 - AMProfile Tab Title is present and clicked on tab verification passed.Expected details : [AM Profile], Actual details : [AM Profile]
+2019-09-13 19:01:52 INFO  Logger:213 - MorningStar Title verification passed.Expected details : [morningstar], Actual details : [morningstar]
+2019-09-13 19:01:52 INFO  Logger:213 - Our WebSite link verification passed
+2019-09-13 19:01:52 INFO  Logger:168 - User logged out successfully

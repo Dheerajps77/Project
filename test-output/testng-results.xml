@@ -2,7 +2,7 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="26651" started-at="2019-09-13T12:56:39Z" finished-at="2019-09-13T12:57:06Z">
+  <suite name="Suite" duration-ms="27579" started-at="2019-09-13T13:31:24Z" finished-at="2019-09-13T13:31:52Z">
     <groups>
       <group name="bank">
         <method signature="BankPortalTest.verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="verifyDetailsPresentOnAMProfilePageTest" class="com.investaSolutions.bankPortal.tests.BankPortalTest"/>
@@ -14,9 +14,9 @@
         <method signature="BankPortalTest.verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="verifyDetailsPresentOnAMProfilePageTest" class="com.investaSolutions.bankPortal.tests.BankPortalTest"/>
       </group> <!-- smoke -->
     </groups>
-    <test name="Test" duration-ms="26651" started-at="2019-09-13T12:56:39Z" finished-at="2019-09-13T12:57:06Z">
+    <test name="Test" duration-ms="27579" started-at="2019-09-13T13:31:24Z" finished-at="2019-09-13T13:31:52Z">
       <class name="com.investaSolutions.bankPortal.tests.BankPortalTest">
-        <test-method status="PASS" signature="beforeSuite(java.lang.String)[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="beforeSuite" is-config="true" duration-ms="4530" started-at="2019-09-13T18:26:35Z" finished-at="2019-09-13T18:26:39Z">
+        <test-method status="PASS" signature="beforeSuite(java.lang.String)[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="beforeSuite" is-config="true" duration-ms="6889" started-at="2019-09-13T19:01:18Z" finished-at="2019-09-13T19:01:24Z">
           <params>
             <param index="0">
               <value>
@@ -27,11 +27,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="verifyDetailsPresentOnAMProfilePageTest" duration-ms="26508" started-at="2019-09-13T18:26:39Z" finished-at="2019-09-13T18:27:06Z">
+        <test-method status="PASS" signature="verifyDetailsPresentOnAMProfilePageTest()[pri:5, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="verifyDetailsPresentOnAMProfilePageTest" duration-ms="26603" started-at="2019-09-13T19:01:25Z" finished-at="2019-09-13T19:01:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyDetailsPresentOnAMProfilePageTest -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="afterMethod" is-config="true" duration-ms="123" started-at="2019-09-13T18:27:06Z" finished-at="2019-09-13T18:27:06Z">
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="afterMethod" is-config="true" duration-ms="172" started-at="2019-09-13T19:01:52Z" finished-at="2019-09-13T19:01:52Z">
           <params>
             <param index="0">
               <value>
@@ -42,7 +42,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="generateReport()[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="generateReport" is-config="true" duration-ms="4255" started-at="2019-09-13T18:27:06Z" finished-at="2019-09-13T18:27:10Z">
+        <test-method status="PASS" signature="generateReport()[pri:0, instance:com.investaSolutions.bankPortal.tests.BankPortalTest@64616ca2]" name="generateReport" is-config="true" duration-ms="4506" started-at="2019-09-13T19:01:52Z" finished-at="2019-09-13T19:01:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateReport -->

@@ -78,9 +78,11 @@ public class TestBase {
 			if (System.getProperty("os.name").contains("Linux")) {
 				driver = getLinuxDriver();
 				log.info(properties.getLogMessage("LinuxOS"));
+				
 			} else if (System.getProperty("os.name").contains("Windows")) {
 				driver = getWindowsDriver(browser);
 				log.info(properties.getLogMessage("WindowsOS"));
+				
 			} else {
 				log.info(properties.getLogMessage("InvalidOS"));
 			}
