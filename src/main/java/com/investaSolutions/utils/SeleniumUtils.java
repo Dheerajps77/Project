@@ -118,7 +118,7 @@ public class SeleniumUtils {
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		Thread.sleep(2000);
 	}
-
+ 
 	public static boolean isElementPresent(WebDriver driver, By locator) {
 		turnOffImplicitWaits(driver);
 		boolean result = false;
