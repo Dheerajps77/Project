@@ -1,0 +1,25 @@
+Nonetheless, below are some of the major changes of the Selenium 4 Alpha release (not specific to any language binding) :
+
+1. Support for Opera and PhantomJS browsers has been removed, since the WebDriver implementations for these 
+browsers are no longer under active development. 
+So, would you have to create manual tests for Opera browser? And what about Headless Test Executions?
+i). Well, since Opera is built using Chromium open source project (The project behind Chrome browser), 
+the behavior of Chrome and Opera should be very similar. Hence, there are fewer chances of having different behaviors 
+and you can simply test Chrome as the Opera browser. And you can still automate Chrome as it is still supported of course.
+ii). And as for Headless Tests, you can use Chrome Headless or Firefox Headless instead of PhantomJS.
+2. WebElement.getSize() and WebElement.getLocation() are now replaced with a single method WebElement.getRect().
+3. They have added driver.switchTo().parentFrame() method.
+4. The Options class for every browser is now extending the Capabilities class.
+5. For WebDriver Window, the getPosition & getSize methods were replaced by getRect method and 
+the setPosition & setSize methods were replaced by setRect method. Fullscreen and minimize methods 
+have been added as well, so that the WebDriver window can now be fullscreen or minimized.
+ 
+
+Additionally to that, below are some of the major changes specific to Java language binding for Selenium 4 Alpha release:
+
+1. There is a New Grid Server (which is also Alpha version) supporting “standalone”, “hub”, “node”, and 
+completely distributed usage. This new Grid Server is able to output logs in single-line json format to the stdout.
+2. Basic support is added for using Docker Containers with new Grid Server.
+3. Now you can configure the location of your Safari driver using the “webdriver.safari.driver” system property.
+4. Element screenshotting is now possible.
+5. Many deprecated methods and classes are deleted.
