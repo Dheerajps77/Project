@@ -13,7 +13,7 @@ public class AdminAMManagementPage {
 	private WebDriver driver;
 	public static PropertiesManager properties = PropertiesManager.getInstance();
 
-	public AdminAMManagementPage (WebDriver driver) {
+	public AdminAMManagementPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
@@ -64,16 +64,19 @@ public class AdminAMManagementPage {
 		return SeleniumUtils.waitForElementPresence(driver, NEW_ASSET_MANAGER_BUTTON, WAIT_SECONDS);
 	}
 
-	public void clickOnAssetManagerManagementTab(){
+	public void clickOnAssetManagerManagementTab() {
 		try {
-			SeleniumUtils.click(assetManagerManagementTabElement(), properties.getLogMessage("AdminAssetManagerManagementTabClickedSuccessfully"));
+			SeleniumUtils.click(assetManagerManagementTabElement(),
+					properties.getLogMessage("AdminAssetManagerManagementTabClickedSuccessfully"));
 		} catch (Exception e) {
 			TestBase.logError(properties.getLogMessage("AdminAssetManagerManagementTabClickFailed"));
 		}
 	}
 
 	// This method verifies the details present on the Admin Portal's page
-	public boolean verifyAssetManagerManagementPageDetails(String assetManagerManagementTitle, String dColumnText, String nameColumnText, String addressColumnText, String contactColumnText, String lastUpdateDateColumnText, String backButtonText, String newAssetManagerButtonText) throws Exception{
+	public boolean verifyAssetManagerManagementPageDetails(String assetManagerManagementTitle, String dColumnText,
+			String nameColumnText, String addressColumnText, String contactColumnText, String lastUpdateDateColumnText,
+			String backButtonText, String newAssetManagerButtonText) throws Exception {
 		boolean flag = false;
 		try {
 			clickOnAssetManagerManagementTab();
@@ -85,15 +88,26 @@ public class AdminAMManagementPage {
 			String lastUpdateDateTextFromUI = lastUpdateDateText();
 			String backButtonTextFromUI = backButtonElement().getText();
 			String newAssetManagerButtonTextFromUI = newAssetManagerButtonElement().getText();
-			if(assetManagerManagementTitleTextFromUI.equals(assetManagerManagementTitle) && dColumnTextFromUI.equals(dColumnText) && nameColumnTextFromUI.equals(nameColumnText) && addressColumnTextFromUI.equals(addressColumnText) && contactColumnTextFromUI.equals(contactColumnText) && lastUpdateDateTextFromUI.equals(lastUpdateDateColumnText) && backButtonTextFromUI.equals(backButtonText) && newAssetManagerButtonTextFromUI.equals(newAssetManagerButtonText)){
+			if (assetManagerManagementTitleTextFromUI.equals(assetManagerManagementTitle)
+					&& dColumnTextFromUI.equals(dColumnText) && nameColumnTextFromUI.equals(nameColumnText)
+					&& addressColumnTextFromUI.equals(addressColumnText)
+					&& contactColumnTextFromUI.equals(contactColumnText)
+					&& lastUpdateDateTextFromUI.equals(lastUpdateDateColumnText)
+					&& backButtonTextFromUI.equals(backButtonText)
+					&& newAssetManagerButtonTextFromUI.equals(newAssetManagerButtonText)) {
 				flag = true;
-				TestBase.logInfo(String.format(properties.getLogMessage("AdminAssetManagerManagementPageDetailsVerified"), assetManagerManagementTitle, dColumnText, nameColumnText, addressColumnText, contactColumnText, lastUpdateDateColumnText, backButtonText, newAssetManagerButtonText, 
-						assetManagerManagementTitleTextFromUI, dColumnTextFromUI, nameColumnTextFromUI, addressColumnTextFromUI, contactColumnTextFromUI, lastUpdateDateTextFromUI, backButtonTextFromUI, newAssetManagerButtonTextFromUI));
+				TestBase.logInfo(
+						String.format(properties.getLogMessage("AdminAssetManagerManagementPageDetailsVerified"),
+								assetManagerManagementTitle, dColumnText, nameColumnText, addressColumnText,
+								contactColumnText, lastUpdateDateColumnText, backButtonText, newAssetManagerButtonText,
+								assetManagerManagementTitleTextFromUI, dColumnTextFromUI, nameColumnTextFromUI,
+								addressColumnTextFromUI, contactColumnTextFromUI, lastUpdateDateTextFromUI,
+								backButtonTextFromUI, newAssetManagerButtonTextFromUI));
 				return flag;
 			}
 		} catch (Exception e) {
 			throw e;
-		}		
+		}
 		return flag;
 	}
 

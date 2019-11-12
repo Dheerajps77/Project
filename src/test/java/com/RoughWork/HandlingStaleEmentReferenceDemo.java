@@ -60,6 +60,8 @@ public class HandlingStaleEmentReferenceDemo {
 			}
 			Thread.sleep(2000);
 			driver.navigate().refresh();
+/*			String str=driver.getWindowHandle();
+			driver.switchTo().window(str);*/
 			Thread.sleep(2000);
 			
 			boolean b=handleStaleElement(driver, googleTextBox, 30);

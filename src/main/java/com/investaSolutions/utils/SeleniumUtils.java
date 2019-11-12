@@ -16,13 +16,16 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.investaSolutions.base.TestBase;
@@ -38,6 +41,31 @@ public class SeleniumUtils {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
 
+	/*
+	public static final WebElement fluentWait(WebElement element, By locator, WebDriver driver, int waitInSeconds,
+			int frequencyTimeWaitInSeconds) {
+		WebElement fluentWaitedElement;
+		Wait<WebDriver> wait = null;
+		try {
+			wait = new FluentWait<WebDriver>(driver).withTimeout(20, TimeUnit.SECONDS)
+					.pollingEvery(frequencyTimeWaitInSeconds, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
+
+			fluentWaitedElement = wait.until(
+
+					new Function() {
+						public WebElement apply(WebDriver driver) {
+							return driver.findElement(locator);
+						}
+					}
+
+			);
+
+		} catch (Exception e) {
+			throw e;
+		}
+		return fluentWaitedElement;
+	}
+*/
 	public static final WebElement waitForElementVisibility(WebDriver driver, By findByCondition, int waitInSeconds) {
 		WebDriverWait wait = new WebDriverWait(driver, waitInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(findByCondition));
@@ -118,7 +146,7 @@ public class SeleniumUtils {
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		Thread.sleep(2000);
 	}
- 
+
 	public static boolean isElementPresent(WebDriver driver, By locator) {
 		turnOffImplicitWaits(driver);
 		boolean result = false;
