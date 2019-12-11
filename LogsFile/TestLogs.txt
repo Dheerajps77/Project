@@ -3198,3 +3198,30 @@ Session ID: 3cc4aaa54d4dcc23b825219e91d72e02
 2019-10-28 14:35:09 INFO  Logger:147 - Test verifyDetailsPresentOnAMProfilePageTest module has been started
 2019-10-28 14:35:09 INFO  Logger:151 - Test verifyDetailsPresentOnAMProfilePageTest module has been failed
 2019-10-28 14:35:09 INFO  Logger:152 - java.lang.AssertionError: Verify details present on AM Profile test is failed expected [true] but found [false]
+2019-11-12 19:36:07 INFO  Logger:77 - Getting OS name
+2019-11-12 19:36:14 INFO  Logger:84 - Windows OS
+2019-11-12 19:36:20 INFO  Logger:206 - Test [This test is details present on AMProfile page or not] has been started
+2019-11-12 19:36:28 INFO  Logger:215 - User [ john.doe@abcbank.com ] logged in successfully
+2019-11-12 19:36:31 INFO  Logger:215 - [] tab button is present in the page and verification is passed
+2019-11-12 19:36:31 ERROR Logger:220 - Exception occurred
+2019-11-12 19:36:31 INFO  Logger:147 - Test verifyDetailsPresentOnAMProfilePageTest module has been started
+2019-11-12 19:36:31 INFO  Logger:151 - Test verifyDetailsPresentOnAMProfilePageTest module has been failed
+2019-11-12 19:36:31 INFO  Logger:152 - java.lang.AssertionError: Verify details present on AM Profile test is failed expected [true] but found [false]
+2019-12-05 15:34:14 INFO  Logger:77 - Getting OS name
+2019-12-05 15:34:20 INFO  Logger:84 - Windows OS
+2019-12-05 15:34:27 INFO  Logger:206 - Test [This test is details present on AMProfile page or not] has been started
+2019-12-05 15:34:46 INFO  Logger:215 - User [ john.doe@abcbank.com ] logged in successfully
+2019-12-05 15:34:49 INFO  Logger:215 - [] tab button is present in the page and verification is passed
+2019-12-05 15:34:49 ERROR Logger:220 - Exception occurred
+2019-12-05 15:34:49 INFO  Logger:147 - Test verifyDetailsPresentOnAMProfilePageTest module has been started
+2019-12-05 15:34:49 INFO  Logger:151 - Test verifyDetailsPresentOnAMProfilePageTest module has been failed
+2019-12-05 15:34:49 INFO  Logger:152 - java.lang.AssertionError: Verify details present on AM Profile test is failed expected [true] but found [false]
+2019-12-05 15:36:01 INFO  Logger:77 - Getting OS name
+2019-12-05 15:36:07 INFO  Logger:84 - Windows OS
+2019-12-05 15:36:13 INFO  Logger:206 - Test [This test is details present on AMProfile page or not] has been started
+2019-12-05 15:36:22 INFO  Logger:215 - User [ john.doe@abcbank.com ] logged in successfully
+2019-12-05 15:36:25 INFO  Logger:215 - [] tab button is present in the page and verification is passed
+2019-12-05 15:36:25 ERROR Logger:220 - Exception occurred
+2019-12-05 15:36:25 INFO  Logger:147 - Test verifyDetailsPresentOnAMProfilePageTest module has been started
+2019-12-05 15:36:25 INFO  Logger:151 - Test verifyDetailsPresentOnAMProfilePageTest module has been failed
+2019-12-05 15:36:25 INFO  Logger:152 - java.lang.AssertionError: Verify details present on AM Profile test is failed expected [true] but found [false]

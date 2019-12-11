@@ -220,8 +220,7 @@ public class TestBase {
 		log.error(message);
 	}
 
-	public static void endTest(String testName, String description){
-		test = extent.createTest(testName, description);
+	public static void endTest(String testName, String description){		
 		log.info("Test " + "[" +testName + "]" + " has been Completed");
 	}
 }

@@ -7,9 +7,9 @@
       <class name="com.investaSolutions.bankPortal.tests.BankPortalTest">
         <methods>
           <include name="beforeSuite"/>
-          <include name="verifyBankPortalDetailsTest"/>
           <include name="afterMethod"/>
           <include name="generateReport"/>
+          <include name="verifyDetailsPresentOnAMProfilePageTest"/>
         </methods>
       </class> <!-- com.investaSolutions.bankPortal.tests.BankPortalTest -->
     </classes>

@@ -1,4 +1,4 @@
-package com.investaSolutions.bankPortal.tests;
+package com.RoughWork;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,7 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.investaSolutions.base.TestBase;
 
-public class NewFile {// extends TestBase{
+public class ExcelHandlingDemo {// extends TestBase{
 
 	static HashMap<String, String> hp = new HashMap<String, String>();
 	static String pathOfExcel = System.getProperty("user.dir") + "/Test Data/TestDataExcelSheet.xlsx";
@@ -44,9 +44,9 @@ public class NewFile {// extends TestBase{
 		Row row;
 		try {
 			workbook = getWorkBookInstance();
-			Sheet sheet=workbook.getSheet("Sheet");
+			Sheet sheet=workbook.getSheet("BankPortal");
 			int rowCount=sheet.getPhysicalNumberOfRows();
-			for(int i=0;i<rowCount;i++)
+			for(int i=1;i<rowCount;i++)
 			{
 				row=sheet.getRow(i);
 				String tcName=row.getCell(0).getStringCellValue();
