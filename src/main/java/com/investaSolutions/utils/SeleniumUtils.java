@@ -130,9 +130,49 @@ public class SeleniumUtils {
 		return pageLoadTime_Seconds;
 	}
 
+	// To get inner text value using javaScriptExecutor
+	public static String toGetTextValue(WebDriver driver, WebElement element)
+	{
+		String textValue="";
+		try {
+			JavascriptExecutor js=(JavascriptExecutor)driver;
+			textValue=(String)js.executeScript("return arguments[0].text;", element);
+			
+		} catch (Exception e) {
+			throw e;
+		}
+		return textValue;
+	}
+	// Enter text using javascript Executor
+	public static void enterTextUsingJavaScriptExecutor(WebDriver driver, WebElement element)
+	{
+		try {
+			JavascriptExecutor js=(JavascriptExecutor) driver;
+			js.executeScript("arguments[0].value='Avinash Mishra';", element);
+			
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	// Highlight an Element
+	public static void highlightAnElement(WebDriver driver, WebElement element)
+	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].style.border='3px dotted blue'", element);
+	}
+	// Scroll-Down Until an Element Displayed
 	public static WebElement scrollToViewElement(WebDriver driver, By findByCondition) {
 		WebElement element = driver.findElement(findByCondition);
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		return driver.findElement(findByCondition);
+	}
+	
+	// To click on any element using javaScriptExecutor
+	public static WebElement clickOnElementUsingJSE(WebDriver driver, By findByCondition) {
+		WebElement element = driver.findElement(findByCondition);
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", element);		
 		return driver.findElement(findByCondition);
 	}
 
@@ -360,4 +400,43 @@ public class SeleniumUtils {
 		}
 		return arrayList;
 	}
+	
+	// This function will drag your slider to some Extent
+		public void SliderDragToSomeExtent(WebDriver driver, int xAxis, int yAxis, WebElement element)
+		{
+			Actions actions=null;
+			try {
+				
+				actions=new Actions(driver);
+				actions.dragAndDropBy(element, xAxis, yAxis).build().perform();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	public List<String> getAllSelectedOptionFromDropDown(WebElement element)
+	{
+		List<WebElement> list=null;
+		ArrayList<String> textList=new ArrayList<String>();
+		int getSize=0;
+		String textValue;
+		try
+		{
+			Select select=new Select(element);
+			list=select.getOptions();
+			getSize=list.size();
+			
+			for(int i=1;i<=getSize;i++)
+			{
+				textValue=list.get(i).getText();
+				textList.add(textValue);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return textList;
+	}
+
 }

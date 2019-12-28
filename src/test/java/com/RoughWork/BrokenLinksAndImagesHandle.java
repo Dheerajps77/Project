@@ -23,7 +23,7 @@ public class BrokenLinksAndImagesHandle {
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);			
 			driver.get("https://www.tseries.com/");
 			ArrayList<String> url = new ArrayList<String>();
 			List<WebElement> elements = driver.findElements(By.tagName("a"));
@@ -40,6 +40,7 @@ public class BrokenLinksAndImagesHandle {
 			{
 				URL urlConnection=new URL(url.get(i));
 				HttpURLConnection httpUrlConnection=(HttpURLConnection) urlConnection.openConnection();
+				httpUrlConnection.setConnectTimeout(20);
 				httpUrlConnection.connect();
 				String responseMessage=httpUrlConnection.getResponseMessage();
 				int responseCode=httpUrlConnection.getResponseCode();

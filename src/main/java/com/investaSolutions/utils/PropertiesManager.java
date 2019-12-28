@@ -79,7 +79,7 @@ public class PropertiesManager {
 	}
 
 	public String getConfig(String key) {
-		return configProperties.getProperty(key);
+		return configProperties.getProperty(key); 
 	}
 	
 	public String getConstant(String key) {
