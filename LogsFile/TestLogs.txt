@@ -3234,3 +3234,10 @@ Session ID: 3cc4aaa54d4dcc23b825219e91d72e02
 2019-12-11 19:03:01 INFO  Logger:147 - Test verifyDetailsPresentOnAMProfilePageTest module has been started
 2019-12-11 19:03:01 INFO  Logger:151 - Test verifyDetailsPresentOnAMProfilePageTest module has been failed
 2019-12-11 19:03:01 INFO  Logger:152 - java.lang.AssertionError: Verify details present on AM Profile test is failed expected [true] but found [false]
+2019-12-28 19:02:15 INFO  Logger:74 - Getting OS name
+2019-12-28 19:02:24 INFO  Logger:81 - Windows OS
+2019-12-28 19:02:30 INFO  Logger:203 - Test [This test is details present on AMProfile page or not] has been started
+2019-12-28 19:03:04 ERROR Logger:217 - Timeout Exception occurred - waiting for web element to be present
+2019-12-28 19:03:04 INFO  Logger:144 - Test verifyDetailsPresentOnAMProfilePageTest module has been started
+2019-12-28 19:03:04 INFO  Logger:148 - Test verifyDetailsPresentOnAMProfilePageTest module has been failed
+2019-12-28 19:03:04 INFO  Logger:149 - org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //input[@placeholder='Username'] | //input[@placeholder='Email'] (tried for 10 second(s) with 500 milliseconds interval)
