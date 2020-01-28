@@ -32,6 +32,7 @@ public class verifyDownloadFile {
 					flag = true;
 					break;
 				}
+								
 			}
 		} catch (Exception e) {
 			throw e;

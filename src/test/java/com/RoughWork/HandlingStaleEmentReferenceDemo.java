@@ -22,7 +22,7 @@ public class HandlingStaleEmentReferenceDemo {
 	public static boolean handleStaleElement(WebDriver driver, WebElement locator, int timeToWait)
 	{
 		boolean b=false;
-		try {
+		try {						
 			WebDriverWait wait=new WebDriverWait(driver, timeToWait);
 			b=wait.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf(locator)));
 			if(b)
