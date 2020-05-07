@@ -1,10 +1,7 @@
 package com.investaSolutions.utils;
 
 import java.awt.AWTException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -13,25 +10,17 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.StopWatch;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.investaSolutions.base.TestBase;
+import com.investaSolutions.base.*;
 
 public class SeleniumUtils {
-	public static PropertiesManager properties = PropertiesManager.getInstance();
+
+	public static PropertiesManager properties = PropertiesManager.getInstance();	
 
 	public static void turnOffImplicitWaits(WebDriver driver) {
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
@@ -40,32 +29,7 @@ public class SeleniumUtils {
 	public static void turnOnImplicitWaits(WebDriver driver) {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
-
-	/*
-	public static final WebElement fluentWait(WebElement element, By locator, WebDriver driver, int waitInSeconds,
-			int frequencyTimeWaitInSeconds) {
-		WebElement fluentWaitedElement;
-		Wait<WebDriver> wait = null;
-		try {
-			wait = new FluentWait<WebDriver>(driver).withTimeout(20, TimeUnit.SECONDS)
-					.pollingEvery(frequencyTimeWaitInSeconds, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
-
-			fluentWaitedElement = wait.until(
-
-					new Function() {
-						public WebElement apply(WebDriver driver) {
-							return driver.findElement(locator);
-						}
-					}
-
-			);
-
-		} catch (Exception e) {
-			throw e;
-		}
-		return fluentWaitedElement;
-	}
-*/
+	
 	public static final WebElement waitForElementVisibility(WebDriver driver, By findByCondition, int waitInSeconds) {
 		WebDriverWait wait = new WebDriverWait(driver, waitInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(findByCondition));
@@ -131,48 +95,47 @@ public class SeleniumUtils {
 	}
 
 	// To get inner text value using javaScriptExecutor
-	public static String toGetTextValue(WebDriver driver, WebElement element)
-	{
-		String textValue="";
+	public static String toGetTextValue(WebDriver driver, WebElement element) {
+		String textValue = "";
 		try {
-			JavascriptExecutor js=(JavascriptExecutor)driver;
-			textValue=(String)js.executeScript("return arguments[0].text;", element);
-			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			textValue = (String) js.executeScript("return arguments[0].text;", element);
+
 		} catch (Exception e) {
 			throw e;
 		}
 		return textValue;
 	}
+
 	// Enter text using javascript Executor
-	public static void enterTextUsingJavaScriptExecutor(WebDriver driver, WebElement element)
-	{
+	public static void enterTextUsingJavaScriptExecutor(WebDriver driver, WebElement element) {
 		try {
-			JavascriptExecutor js=(JavascriptExecutor) driver;
+			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].value='Avinash Mishra';", element);
-			
+
 		} catch (Exception e) {
 			throw e;
 		}
 	}
-	
+
 	// Highlight an Element
-	public static void highlightAnElement(WebDriver driver, WebElement element)
-	{
-		JavascriptExecutor js=(JavascriptExecutor)driver;
+	public static void highlightAnElement(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].style.border='3px dotted blue'", element);
 	}
+
 	// Scroll-Down Until an Element Displayed
 	public static WebElement scrollToViewElement(WebDriver driver, By findByCondition) {
 		WebElement element = driver.findElement(findByCondition);
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		return driver.findElement(findByCondition);
 	}
-	
+
 	// To click on any element using javaScriptExecutor
 	public static WebElement clickOnElementUsingJSE(WebDriver driver, By findByCondition) {
 		WebElement element = driver.findElement(findByCondition);
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", element);		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", element);
 		return driver.findElement(findByCondition);
 	}
 
@@ -199,6 +162,24 @@ public class SeleniumUtils {
 			turnOnImplicitWaits(driver);
 		}
 		return result;
+	}
+	
+	
+	public static void switchToFrame(WebDriver driver, WebElement element)
+	{
+		try {
+			
+			driver.switchTo().frame(element);
+			
+			/*
+			 * List<WebElement> frames=driver.findElements(By.tagName("iframe")); int
+			 * count=frames.size();
+			 * 
+			 * for(int i=1;i<count;i++) { driver.switchTo().frame(index); }
+			 */
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 
 	public static void hoverElement(WebDriver driver, By locator) {
@@ -285,6 +266,28 @@ public class SeleniumUtils {
 		}
 		return titleText;
 	}
+	
+	public String getTextOfElement(WebDriver driver, WebElement element) throws Exception {
+		String titleText = "";		
+		try {
+			titleText = element.getText();
+		} catch (Exception e) {
+			throw e;
+		}
+		return titleText;
+	}
+	
+	public String getAttributeValue(WebDriver driver, WebElement element, String attributeValue)
+	{
+		String textOfAttributeValue="";
+		try {
+			textOfAttributeValue=element.getAttribute(attributeValue);
+		} catch (Exception e) {
+			throw e;
+		}
+		return textOfAttributeValue;
+	}
+	
 
 	public boolean isElementDisplayed(WebDriver driver, By locator) throws Exception {
 		WebElement element;
@@ -314,6 +317,17 @@ public class SeleniumUtils {
 		try {
 			element.click();
 			TestBase.logInfo(message);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	public static void handleAlertPopUpWindow(WebDriver driver)
+	{
+		Alert alert;
+		try {
+			alert=driver.switchTo().alert();
+			alert.dismiss();
 		} catch (Exception e) {
 			throw e;
 		}
@@ -366,7 +380,7 @@ public class SeleniumUtils {
 		} catch (Exception e) {
 			throw e;
 		}
-	}
+	}	
 
 	public static void waitAndClick(WebDriver driver, WebElement iwebElement, int time) throws InterruptedException {
 		for (int i = 0; i <= time; i++) {
@@ -400,43 +414,116 @@ public class SeleniumUtils {
 		}
 		return arrayList;
 	}
-	
+
 	// This function will drag your slider to some Extent
-		public void SliderDragToSomeExtent(WebDriver driver, int xAxis, int yAxis, WebElement element)
-		{
-			Actions actions=null;
-			try {
-				
-				actions=new Actions(driver);
-				actions.dragAndDropBy(element, xAxis, yAxis).build().perform();
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+	public void SliderDragToSomeExtent(WebDriver driver, int xAxis, int yAxis, WebElement element) {
+		Actions actions = null;
+		try {
+
+			actions = new Actions(driver);
+			actions.dragAndDropBy(element, xAxis, yAxis).build().perform();
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-	public List<String> getAllSelectedOptionFromDropDown(WebElement element)
+	}
+	
+	
+	public static void enterTextInTextBox(WebDriver driver, WebElement element, int waitInSeconds, String textValue)
 	{
-		List<WebElement> list=null;
-		ArrayList<String> textList=new ArrayList<String>();
-		int getSize=0;
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, waitInSeconds);
+			wait.until(ExpectedConditions.visibilityOf(element));
+			element.sendKeys(textValue);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	public List<String> getAllSelectedOptionFromDropDown(WebElement element) {
+		List<WebElement> list = null;
+		ArrayList<String> textList = new ArrayList<String>();
+		int getSize = 0;
 		String textValue;
-		try
-		{
-			Select select=new Select(element);
-			list=select.getOptions();
-			getSize=list.size();
-			
-			for(int i=1;i<=getSize;i++)
-			{
-				textValue=list.get(i).getText();
+		try {
+			Select select = new Select(element);
+			list = select.getOptions();
+			getSize = list.size();
+
+			for (int i = 1; i <= getSize; i++) {
+				textValue = list.get(i).getText();
 				textList.add(textValue);
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return textList;
 	}
+	
+	/*
+	public static void checkIfElementBecomeDecay(WebDriver driver, WebElement element)
+	{
+		WebDriverWait wait=new WebDriverWait(driver, 50);
+		boolean flag=false;
+		boolean f=false;
+		try {
+			
+			f=wait.until(ExpectedConditions.not(ExpectedConditions.stalenessOf(element)));
+			
+			if(!f)
+			{
+				driver.findElement(By.tagName("img"));
+				flag=true;
+			}
+			
+		} catch (Exception e) {
+			throw e;
+		}		
+	} 
+	*/
+	
+	public static WebElement staleElementHandle(WebDriver driver, WebElement element, By locator)
+	{
+		try {
+			// Check visibility. If reference is not stale, it will return the same referenced. Otherwise it will go to catch.
+			element.isDisplayed();
+			return element;
+			
+			// Relocate element in catch and return
+		}catch(StaleElementReferenceException e)
+		{
+			return driver.findElement(locator);
+			
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
+	public static boolean validatePhoneNumber(String phoneNo) {
 
+		// validate phone numbers of format "1234567890"
+		if (phoneNo.matches("\\d{10}")) {
+			return true;
+		}
+		// validating phone number with -, . or spaces
+		else if (phoneNo.matches("\\d{3}[-\\.\\s]\\d{3}[-\\.\\s]\\d{4}")) {
+			return true;
+		}
+
+		// validating phone number with extension length from 3 to 5
+		else if (phoneNo.matches("\\d{3}-\\d{3}-\\d{4}\\s(x|(ext))\\d{3,5}")) {
+			return true;
+		}
+		// validating phone number where area code is in braces ()
+		else if (phoneNo.matches("\\(\\d{3}\\)-\\d{3}-\\d{4}")) {
+			return true;
+		}
+		// return false if nothing matches the input
+		else
+			return false;
+	}
 }

@@ -1,4 +1,4 @@
-package com.spinny.qa.pages;
+package com.recent.files;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,8 +21,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.google.common.io.Files;
-import com.spinny.qa.testbase.TestBase;
-import com.spinny.qa.utils.PropertiesManager;
+import com.investaSolutions.base.*;
+import com.investaSolutions.utils.PropertiesManager;
 
 public class SiteMapURLExtractor{
 

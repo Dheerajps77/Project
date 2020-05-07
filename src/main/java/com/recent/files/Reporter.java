@@ -1,4 +1,4 @@
-package com.spinny.qa.utils;
+package com.recent.files;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

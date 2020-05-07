@@ -1,4 +1,4 @@
-package com.spinny.qa.pages;
+package com.recent.files;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.spinny.qa.testbase.TestBase;
-import com.spinny.qa.utils.PropertiesManager;
-import com.spinny.qa.utils.SeleniumUtils;
+import com.investaSolutions.base.*;
+import com.investaSolutions.utils.PropertiesManager;
+import com.investaSolutions.utils.SeleniumUtils;
 
 public class SEOOfHomePage {
 

@@ -1,24 +1,15 @@
-package com.spinny.qa.utils;
+package com.recent.files;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
-import io.restassured.response.ValidatableResponse;
-import io.restassured.response.ValidatableResponseLogSpec;
-import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
-
 import static io.restassured.RestAssured.given;
-
 import java.io.File;
 import java.io.FileInputStream;
-
 import org.apache.commons.io.IOUtils;
-import org.json.simple.JSONObject;
-import org.testng.Assert;
 
-import com.spinny.qa.testbase.TestBase;
+
+import com.investaSolutions.base.*;
 
 public class RestAssuredAPI {
 

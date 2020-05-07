@@ -1,12 +1,12 @@
-package com.spinny.qa.utils;
+package com.recent.files;
 
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.spinny.qa.pages.GetUserOPTNumberPage;
-import com.spinny.qa.testbase.TestBase;
+import com.recent.files.GetUserOPTNumberPage;
+import com.investaSolutions.base.*;
 
 public class UserFunctions {
 

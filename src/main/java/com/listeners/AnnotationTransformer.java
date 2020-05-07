@@ -1,4 +1,4 @@
-package com.spinny.qa.listeners;
+package com.listeners;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

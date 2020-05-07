@@ -1,4 +1,4 @@
-package com.spinny.qa.listeners;
+package com.listeners;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

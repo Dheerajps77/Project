@@ -1,4 +1,4 @@
-package com.spinny.qa.pages;
+package com.recent.files;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.spinny.qa.testbase.TestBase;
+import com.investaSolutions.base.*;
 
 public class ImgALTTag {
 	

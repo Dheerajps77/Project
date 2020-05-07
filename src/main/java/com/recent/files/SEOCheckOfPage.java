@@ -1,4 +1,4 @@
-package com.spinny.qa.pages;
+package com.recent.files;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -18,18 +18,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.spinny.qa.testbase.TestBase;
-import com.spinny.qa.utils.GenericUtils;
-import com.spinny.qa.utils.PropertiesManager;
-import com.spinny.qa.utils.Reporter;
-import com.spinny.qa.utils.SeleniumUtils;
+import com.investaSolutions.base.TestBase;
+import com.investaSolutions.utils.GenericUtils;
+import com.investaSolutions.utils.PropertiesManager;
+import com.investaSolutions.utils.Reporter;
+import com.investaSolutions.utils.SeleniumUtils;
 
 public class SEOCheckOfPage {
 
@@ -141,7 +138,7 @@ public class SEOCheckOfPage {
 			titleOfPage = driver.getTitle();
 			totalNumberOfChars = objGenericUtils.getTotalNumbersOfCharacters(titleOfPage);
 
-			if (titleOfPage == null || titleOfPage.isBlank()) {
+			if (titleOfPage == null || titleOfPage.isEmpty()) {
 				titleOfArrayList.add("Title");
 				titleOfArrayList.add(titleOfPage);
 				titleOfArrayList.add("Missing");
@@ -154,7 +151,7 @@ public class SEOCheckOfPage {
 				titleOfArrayList.add(titleOfPage);
 				titleOfArrayList.add("Length is not > 30 and < 60 Characters");
 				map.put("Title", titleOfArrayList);
-			} else if (titleOfPage != null || !(titleOfPage.isBlank())) {
+			} else if (titleOfPage != null || !(titleOfPage.isEmpty())) {
 				TestBase.logInfo(String.format(properties.getLogMessage("VerifyTheLengthOfHomePageTitlePassed"),
 						titleOfPage, totalNumberOfChars, startCountOfCharNumber, endCountOfCharNumber));
 				/*
@@ -548,7 +545,7 @@ public class SEOCheckOfPage {
 					/// String url=urlsss.replace("https", "http");
 					if (url != null && !url.contains("javascript") && !url.contains("tel:")
 							&& !url.contains("mailto:")) {
-						if (url.contains("http://api.whatsapp.com/send/?phone=917277277275") || url.isBlank()
+						if (url.contains("http://api.whatsapp.com/send/?phone=917277277275") || url.isEmpty()
 								|| url.contains("whatsapp://send?text=")) {
 							System.out.println(url);
 						} else {

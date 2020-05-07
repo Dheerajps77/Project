@@ -1,4 +1,4 @@
-package com.spinny.qa.utils;
+package com.recent.files;
 
 import java.awt.AWTException;
 import java.io.*;
@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.spinny.qa.testbase.TestBase;
+import com.investaSolutions.base.*;
 
 public class SeleniumUtils {
 

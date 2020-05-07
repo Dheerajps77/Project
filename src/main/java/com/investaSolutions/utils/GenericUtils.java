@@ -33,6 +33,31 @@ public class GenericUtils {
 		out.close();
 	}
 
+	
+	
+	public int getTotalNumbersOfCharacters(String str)
+	{
+		int lenghtOfChar;
+		try {
+			lenghtOfChar=str.length();
+			
+		} catch (Exception e) {
+			throw e;
+		}
+		return lenghtOfChar;
+	}
+	
+	public int convertStringToInt(String str)
+	{
+		int value;
+		try {
+			
+			value=Integer.parseInt(str);
+		} catch (Exception e) {
+			throw e;
+		}
+		return value;
+	}
 	public static String getCurrentDateTimeMS(){
 		Date now = new Date();
 		SimpleDateFormat formatedNow = new SimpleDateFormat("yyMMddhhmmssMs");
