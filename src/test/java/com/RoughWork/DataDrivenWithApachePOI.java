@@ -3,17 +3,26 @@ package com.RoughWork;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class DataDrivenWithApachePOI {
 
+	static Workbook wb;
+	static Sheet sheet;
+	static Cell cell;
+	static int rowCount;
+	static int cellCount;
+	static Row row;
 	public static Workbook getWorkBook() throws Exception {
 		Workbook wb;
 
@@ -34,14 +43,7 @@ public class DataDrivenWithApachePOI {
 	}
 
 	public static void readDataOnlyWithoutColumn(String sheetName) throws Exception {
-		Workbook wb;
-		Sheet sheet;
-		Row row;
-		Cell cell;
-		int rowCount;
-		int cellCount;
-
-		try {
+		try {			
 			wb = getWorkBook();
 			sheet = wb.getSheet(sheetName);
 			rowCount = sheet.getLastRowNum();
@@ -50,27 +52,23 @@ public class DataDrivenWithApachePOI {
 				row = sheet.getRow(i);
 				cellCount = row.getLastCellNum();
 
-				for (int j = 0; j <= cellCount-1; j++) {
+				for (int j = 0; j <= cellCount - 1; j++) {
 					cell = row.getCell(j);
-					CellType type =cell.getCellTypeEnum();
+					CellType type = cell.getCellTypeEnum();
 					if (type == CellType.BLANK) {
 						System.out.println("[" + cell.getRowIndex() + " " + cell.getColumnIndex() + "]=BLANK CELL");
 					} else if (type == CellType.STRING) {
-						System.out.println("[" + cell.getRowIndex() + " " + cell.getColumnIndex() + "]=STRING; Value is : "
-								+ cell.getRichStringCellValue().toString());
-					}
-					else if(type==CellType.NUMERIC)
-					{
-						double d=cell.getNumericCellValue();
-						String value=String.valueOf(d);
-						String newValue=value.replace(".", "");
-						System.out.println("[" + cell.getRowIndex() + " " + cell.getColumnIndex() + "]=NUMBERIC; Value is :"
-								+ newValue);
-					}
-					else if(type==CellType.BOOLEAN)
-					{
-						System.out.println("["+cell.getRowIndex() + " " +cell.getColumnIndex() + "]=BOOLEAN; Value is :"
-								+cell.getBooleanCellValue());
+						System.out.println("[" + cell.getRowIndex() + " " + cell.getColumnIndex()
+								+ "]=STRING; Value is : " + cell.getRichStringCellValue().toString());
+					} else if (type == CellType.NUMERIC) {
+						double d = cell.getNumericCellValue();
+						String value = String.valueOf(d);
+						String newValue = value.replace(".", "");
+						System.out.println("[" + cell.getRowIndex() + " " + cell.getColumnIndex()
+								+ "]=NUMBERIC; Value is :" + newValue);
+					} else if (type == CellType.BOOLEAN) {
+						System.out.println("[" + cell.getRowIndex() + " " + cell.getColumnIndex()
+								+ "]=BOOLEAN; Value is :" + cell.getBooleanCellValue());
 					}
 
 				}
@@ -99,18 +97,12 @@ public class DataDrivenWithApachePOI {
            [3 3]=NUMBERIC; Value is :16287819E7
            [3 4]=STRING; Value is : jsdhasjds@gmail.com
            [3 5]=BOOLEAN; Value is :false
-
 		 */
 	}
-	
-	public static void readDataOnlyWithColumn(String sheetName) throws Exception {
-		Workbook wb;
-		Sheet sheet;
-		Row row;
-		Cell cell;
-		int rowCount;
-		int cellCount;
+
+	public static void readDataOnlyWithColumn(String sheetName) throws Exception {		
 		try {
+			Row row;
 			wb = getWorkBook();
 			sheet = wb.getSheet(sheetName);
 			rowCount = sheet.getLastRowNum();
@@ -119,23 +111,19 @@ public class DataDrivenWithApachePOI {
 				row = sheet.getRow(i);
 				cellCount = row.getLastCellNum();
 
-				for (int j = 0; j <= cellCount-1; j++) {
+				for (int j = 0; j <= cellCount - 1; j++) {
 					cell = row.getCell(j);
-					CellType type=cell.getCellTypeEnum();
+					CellType type = cell.getCellTypeEnum();
 					if (type == CellType.BLANK) {
 						System.out.println("=BLANK CELL");
 					} else if (type == CellType.STRING) {
 						System.out.print(cell.getRichStringCellValue().toString() + " | ");
-					}
-					else if(type==CellType.NUMERIC)
-					{
-						double d=cell.getNumericCellValue();
-						String value=String.valueOf(d);
-						String newValue=value.replace(".", "");
+					} else if (type == CellType.NUMERIC) {
+						double d = cell.getNumericCellValue();
+						String value = String.valueOf(d);
+						String newValue = value.replace(".", "");
 						System.out.print(newValue + " | ");
-					}
-					else if(type==CellType.BOOLEAN)
-					{
+					} else if (type == CellType.BOOLEAN) {
 						System.out.print(cell.getBooleanCellValue());
 					}
 				}
@@ -145,20 +133,50 @@ public class DataDrivenWithApachePOI {
 		} catch (Exception e) {
 			throw e;
 		}
-		
-		/***
-		 * Below are the Output
-		 * FirstName | LastName | Address | Contact Number | Email Id | Leaving Status | 
-		   Dheeraj | Singh | New Delhi | 23434343E7 | kjdkasd@gmail.com | false
-		   Rahul  | Singh | New Delhi | 989893284E8 | nmcnckdjf@gmail.com | true
-		   Mukesh | Yadav | Mumbai | 16287819E7 | jsdhasjds@gmail.com | false
 
+		/***
+		 * Below are the Output FirstName | LastName | Address | Contact Number
+		 * | Email Id | Leaving Status | Dheeraj | Singh | New Delhi |
+		 * 23434343E7 | kjdkasd@gmail.com | false Rahul | Singh | New Delhi |
+		 * 989893284E8 | nmcnckdjf@gmail.com | true Mukesh | Yadav | Mumbai |
+		 * 16287819E7 | jsdhasjds@gmail.com | false
+		 * 
 		 */
 	}
+	
+	public static Map<String, String> getExcelValuesAndStoreInMap(String sheetName) throws Exception
+	{
+		String key;
+		String value;
+		wb = getWorkBook();
+		sheet = wb.getSheet(sheetName);
+		rowCount = sheet.getLastRowNum();		
+		Map<String, String> map;
+		try {
+			map=new HashMap<String, String>();
+			
+			for(int i=0;i<=rowCount;i++)
+			{
+				row=sheet.getRow(i);
+				Cell keyCell=row.getCell(0);
+				Cell keyValue=row.getCell(1);
+				key=keyCell.getStringCellValue();
+					value=keyValue.getStringCellValue();
+					map.put(key, value);
+					System.out.println(key + " " +value);
+				
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return map;
+	}
+	
 
 	public static void main(String[] args) throws Exception {
 
-		DataDrivenWithApachePOI.readDataOnlyWithoutColumn("Sheet1");
+		//DataDrivenWithApachePOI.readDataOnlyWithoutColumn("Sheet1");
+		DataDrivenWithApachePOI.getExcelValuesAndStoreInMap("Sheet2");
 	}
 
 }
