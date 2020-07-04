@@ -56,7 +56,10 @@ public class SeleniumUtils {
 
 	public static void switchWindowByIndex(WebDriver driver, int windowno) {
 		Set<String> window = driver.getWindowHandles();
-		driver.switchTo().window(window.toArray()[windowno].toString());
+		String switchToWindow=window.toArray()[windowno].toString();
+		driver.switchTo().window(switchToWindow);
+		// or at below
+		//driver.switchTo().window(window.toArray()[windowno].toString());
 	}
 
 	public static void closeCurrentBrowserTab(WebDriver driver) {
@@ -108,12 +111,13 @@ public class SeleniumUtils {
 	}
 
 	// Enter text using javascript Executor
-	public static void enterTextUsingJavaScriptExecutor(WebDriver driver, WebElement element) {
+	public static void enterTextUsingJavaScriptExecutor(WebDriver driver, WebElement element, String value) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].value='Avinash Mishra';", element);
+			js.executeScript("arguments[0].value='value';", element);
 
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			throw e;
 		}
 	}
@@ -435,6 +439,17 @@ public class SeleniumUtils {
 			WebDriverWait wait = new WebDriverWait(driver, waitInSeconds);
 			wait.until(ExpectedConditions.visibilityOf(element));
 			element.sendKeys(textValue);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	public static void escMethod(WebDriver driver)
+	{
+		Actions action;
+		try {
+			action=new Actions(driver);
+			action.sendKeys(Keys.ESCAPE).build().perform();
 		} catch (Exception e) {
 			throw e;
 		}
