@@ -43,10 +43,12 @@ public class ReadDataOfParticularTestCaseFromExcel {
 			int rowCount = sheet.getLastRowNum();
 			for (int i = 1; i <= rowCount; i++) {
 				row = sheet.getRow(i);
+
 				String tcName = sheet.getRow(i).getCell(0).getStringCellValue();
 				int cellCount = row.getLastCellNum();
 
 				if (tcName.equalsIgnoreCase(tcNameFromExcel)) {
+				
 					for (int j = 0; j < cellCount-1; j++) {
 						
 						String value = row.getCell(j + 1).getStringCellValue();
