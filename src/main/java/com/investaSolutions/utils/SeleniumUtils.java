@@ -71,55 +71,54 @@ public class SeleniumUtils {
 	}
 
 	// This will close all tab except parent
-		public static void SelectClassMethod(WebDriver driver, int windowno) {
-			try {
-				// Below are the code of Select class in selenium
-				WebElement element=driver.findElement(By.xpath(""));
-				
-				Select select=new Select(element);
-				select.selectByIndex(windowno);
-				select.selectByValue("firstTabHandle");
-				select.selectByVisibleText("firstTabHandle");
-				
-				select.deselectByIndex(windowno);
-				select.deselectByValue("firstTabHandle");
-				select.deselectByVisibleText("firstTabHandle");
-				
-				
-				/*
-				 * This method returns all the selected options of the dropdown. If it is a
-				 * single-select dropdown, this method will return the only selected value of
-				 * the dropdown, and if it is a multi-select dropdown, this method will return
-				 * all the selected values of the dropdown.
-				 */
-				// Get all the selected option of the dropdown
-				List<WebElement> listOfSelectElement=select.getAllSelectedOptions();
-				
-				
-				// All options belonging to this selected tag
-				List<WebElement> firstSelectedOption = select.getOptions();
-				
-				// Get the first selected option of the dropdown
-				WebElement firstSelectedOption1 = select.getFirstSelectedOption();
-				
-				if(select.isMultiple()){
-					
-					//Selecting multiple values by index
-					select.selectByIndex(1);
-					select.selectByIndex(2);
+	public static void SelectClassMethod(WebDriver driver, int windowno) {
+		try {
+			// Below are the code of Select class in selenium
+			WebElement element = driver.findElement(By.xpath(""));
 
-					//Or selecting by values
-					select.selectByValue("volvo");
-					select.selectByValue("audi");
+			Select select = new Select(element);
+			select.selectByIndex(windowno);
+			select.selectByValue("firstTabHandle");
+			select.selectByVisibleText("firstTabHandle");
 
-					//Or selecting by visible text
-					select.selectByVisibleText("Volvo");
-					select.selectByVisibleText("Opel");
-				}
-			} catch (Exception e) {
-				throw e;
+			select.deselectByIndex(windowno);
+			select.deselectByValue("firstTabHandle");
+			select.deselectByVisibleText("firstTabHandle");
+
+			/*
+			 * This method returns all the selected options of the dropdown. If it is a
+			 * single-select dropdown, this method will return the only selected value of
+			 * the dropdown, and if it is a multi-select dropdown, this method will return
+			 * all the selected values of the dropdown.
+			 */
+			// Get all the selected option of the dropdown
+			List<WebElement> listOfSelectElement = select.getAllSelectedOptions();
+
+			// All options belonging to this selected tag
+			List<WebElement> firstSelectedOption = select.getOptions();
+
+			// Get the first selected option of the dropdown
+			WebElement firstSelectedOption1 = select.getFirstSelectedOption();
+
+			if (select.isMultiple()) {
+
+				// Selecting multiple values by index
+				select.selectByIndex(1);
+				select.selectByIndex(2);
+
+				// Or selecting by values
+				select.selectByValue("volvo");
+				select.selectByValue("audi");
+
+				// Or selecting by visible text
+				select.selectByVisibleText("Volvo");
+				select.selectByVisibleText("Opel");
 			}
+		} catch (Exception e) {
+			throw e;
 		}
+	}
+
 	// This will close all tab except parent
 	public static void closeAllRightTabs(WebDriver driver, int windowno) {
 		try {
@@ -127,7 +126,7 @@ public class SeleniumUtils {
 			List<String> windowHandlesList = new ArrayList<>(windowHandles);
 			String firstTabHandle = windowHandlesList.get(0);
 			driver.findElement(By.xpath(""));
-			
+
 			for (int i = 1; i < windowHandlesList.size(); i++) {
 				String currentHandle = windowHandlesList.get(i);
 				if (!currentHandle.equals(firstTabHandle)) {
@@ -608,4 +607,17 @@ public class SeleniumUtils {
 		else
 			return false;
 	}
+
+	// Method to zoom in
+	public static void zoomIn(WebDriver driver, double zoomFactor) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("document.body.style.zoom='" + (zoomFactor * 100) + "%'");
+	}
+
+	// Method to zoom out
+	public static void zoomOut(WebDriver driver, double zoomFactor) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("document.body.style.zoom='" + (zoomFactor * 100) + "%'");
+	}
+	
 }
