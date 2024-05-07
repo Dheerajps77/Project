@@ -1,15 +1,14 @@
 package com.recent.files;
 
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import static io.restassured.RestAssured.given;
 import java.io.File;
 import java.io.FileInputStream;
+
+import javax.mail.internet.ContentType;
+
 import org.apache.commons.io.IOUtils;
 
-
-import com.investaSolutions.base.*;
+import com.gargoylesoftware.htmlunit.javascript.host.fetch.Response;
+import com.investaSolutions.base.TestBase;
 
 public class RestAssuredAPI {
 
@@ -63,23 +62,23 @@ public class RestAssuredAPI {
 	 * @return Response
 	 * @throws Exception
 	 */
-	public Response getResponseOfPOSTCall(String endPointURL, String jsonFilePath) throws Exception {
-		String Valid_id = "";
-		String Valid_pass = "";
-		Response response;
-		FileInputStream fis = null;
-		try {
-			Valid_id = properties.getConstant("id");
-			Valid_pass = properties.getConstant("pass");
-			RestAssured.baseURI = endPointURL;
-			fis = new FileInputStream(new File(jsonFilePath));
-			response = given().auth().preemptive().basic(Valid_id, Valid_pass).body(IOUtils.toString(fis, "UTF-8"))
-					.contentType(ContentType.JSON).when().post(endPointURL);
-		} catch (Exception e) {
-			throw e;
-		}
-		return response;
-	}
+//	public Response getResponseOfPOSTCall(String endPointURL, String jsonFilePath) throws Exception {
+//		String Valid_id = "";
+//		String Valid_pass = "";
+//		Response response;
+//		FileInputStream fis = null;
+//		try {
+//			Valid_id = properties.getConstant("id");
+//			Valid_pass = properties.getConstant("pass");
+//			RestAssured.baseURI = endPointURL;
+//			fis = new FileInputStream(new File(jsonFilePath));
+//			response = given().auth().preemptive().basic(Valid_id, Valid_pass).body(IOUtils.toString(fis, "UTF-8"))
+//					.contentType(ContentType.JSON).when().post(endPointURL);
+//		} catch (Exception e) {
+//			throw e;
+//		}
+//		return response;
+//	}
 
 	/***
 	 * This will verify the response code of API
@@ -89,29 +88,20 @@ public class RestAssuredAPI {
 	 * @return Response Code
 	 * @throws Exception
 	 */
-	public boolean verifyAPICallResponse(String endPointURL, String jsonFilePath) throws Exception {
-		int responseCode;
-		String responseCodeInString;
-		String responseMsg;
-		String responseBody;
-		boolean flag = false;
-		Response response;
-		try {
-			response = getResponseOfPOSTCall(endPointURL, jsonFilePath);
-			responseCode = response.getStatusCode();
-			responseMsg = response.getStatusLine();
-			responseCodeInString = Integer.toString(responseCode);
-			responseBody = response.asString();
-			if (responseCode == 200 || responseCode == 201) {
-				flag = true;
-				TestBase.logInfo(String.format(properties.getConstant("VerifyAPICallTestResultPassed"),responseCodeInString, responseMsg, responseBody));
-			} else {
-				TestBase.logError(String.format(properties.getConstant("VerifyAPICallTestResultFailed"),responseCodeInString, responseMsg, responseBody));
-			}
-		} catch (Exception e) {
-			throw e;
-		}
-		return flag;
-	}
-
+	/*
+	 * public boolean verifyAPICallResponse(String endPointURL, String jsonFilePath)
+	 * throws Exception { int responseCode; String responseCodeInString; String
+	 * responseMsg; String responseBody; boolean flag = false; Response response;
+	 * try { response = getResponseOfPOSTCall(endPointURL, jsonFilePath);
+	 * //responseCode = response.getStatusCode(); //responseMsg =
+	 * response.getStatusLine(); responseCodeInString =
+	 * Integer.toString(responseCode); //responseBody = response.asString(); if
+	 * (responseCode == 200 || responseCode == 201) { flag = true;
+	 * TestBase.logInfo(String.format(properties.getConstant(
+	 * "VerifyAPICallTestResultPassed"),responseCodeInString, responseMsg,
+	 * responseBody)); } else {
+	 * TestBase.logError(String.format(properties.getConstant(
+	 * "VerifyAPICallTestResultFailed"),responseCodeInString, responseMsg,
+	 * responseBody)); } } catch (Exception e) { throw e; } return flag; }
+	 */
 }

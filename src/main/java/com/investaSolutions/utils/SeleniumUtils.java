@@ -20,7 +20,7 @@ import com.investaSolutions.base.*;
 
 public class SeleniumUtils {
 
-	public static PropertiesManager properties = PropertiesManager.getInstance();	
+	public static PropertiesManager properties = PropertiesManager.getInstance();
 
 	public static void turnOffImplicitWaits(WebDriver driver) {
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
@@ -29,7 +29,7 @@ public class SeleniumUtils {
 	public static void turnOnImplicitWaits(WebDriver driver) {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
-	
+
 	public static final WebElement waitForElementVisibility(WebDriver driver, By findByCondition, int waitInSeconds) {
 		WebDriverWait wait = new WebDriverWait(driver, waitInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(findByCondition));
@@ -54,12 +54,100 @@ public class SeleniumUtils {
 		return count;
 	}
 
+	// This will help to switch to window basis on index
+	public static void switchWindowByIndexMethod2(WebDriver driver, int windowno) {
+		try {
+			Set<String> windowHandles = driver.getWindowHandles();
+
+			List<String> windowHandlesList = new ArrayList<>(windowHandles);
+			String fourthTabHandle = windowHandlesList.get(3); // Index starts from 0
+			driver.switchTo().window(fourthTabHandle);
+			String title = driver.getTitle();
+			driver.switchTo().defaultContent();
+
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	// This will close all tab except parent
+		public static void SelectClassMethod(WebDriver driver, int windowno) {
+			try {
+				// Below are the code of Select class in selenium
+				WebElement element=driver.findElement(By.xpath(""));
+				
+				Select select=new Select(element);
+				select.selectByIndex(windowno);
+				select.selectByValue("firstTabHandle");
+				select.selectByVisibleText("firstTabHandle");
+				
+				select.deselectByIndex(windowno);
+				select.deselectByValue("firstTabHandle");
+				select.deselectByVisibleText("firstTabHandle");
+				
+				
+				/*
+				 * This method returns all the selected options of the dropdown. If it is a
+				 * single-select dropdown, this method will return the only selected value of
+				 * the dropdown, and if it is a multi-select dropdown, this method will return
+				 * all the selected values of the dropdown.
+				 */
+				// Get all the selected option of the dropdown
+				List<WebElement> listOfSelectElement=select.getAllSelectedOptions();
+				
+				
+				// All options belonging to this selected tag
+				List<WebElement> firstSelectedOption = select.getOptions();
+				
+				// Get the first selected option of the dropdown
+				WebElement firstSelectedOption1 = select.getFirstSelectedOption();
+				
+				if(select.isMultiple()){
+					
+					//Selecting multiple values by index
+					select.selectByIndex(1);
+					select.selectByIndex(2);
+
+					//Or selecting by values
+					select.selectByValue("volvo");
+					select.selectByValue("audi");
+
+					//Or selecting by visible text
+					select.selectByVisibleText("Volvo");
+					select.selectByVisibleText("Opel");
+				}
+			} catch (Exception e) {
+				throw e;
+			}
+		}
+	// This will close all tab except parent
+	public static void closeAllRightTabs(WebDriver driver, int windowno) {
+		try {
+			Set<String> windowHandles = driver.getWindowHandles();
+			List<String> windowHandlesList = new ArrayList<>(windowHandles);
+			String firstTabHandle = windowHandlesList.get(0);
+			driver.findElement(By.xpath(""));
+			
+			for (int i = 1; i < windowHandlesList.size(); i++) {
+				String currentHandle = windowHandlesList.get(i);
+				if (!currentHandle.equals(firstTabHandle)) {
+					driver.switchTo().window(currentHandle);
+					driver.close();
+				}
+			}
+			driver.switchTo().window(firstTabHandle);
+
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
 	public static void switchWindowByIndex(WebDriver driver, int windowno) {
 		Set<String> window = driver.getWindowHandles();
-		String switchToWindow=window.toArray()[windowno].toString();
+		String switchToWindow = window.toArray()[windowno].toString();
 		driver.switchTo().window(switchToWindow);
 		// or at below
-		//driver.switchTo().window(window.toArray()[windowno].toString());
+		// driver.switchTo().window(window.toArray()[windowno].toString());
 	}
 
 	public static void closeCurrentBrowserTab(WebDriver driver) {
@@ -116,8 +204,7 @@ public class SeleniumUtils {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].value='value';", element);
 
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			throw e;
 		}
 	}
@@ -167,14 +254,12 @@ public class SeleniumUtils {
 		}
 		return result;
 	}
-	
-	
-	public static void switchToFrame(WebDriver driver, WebElement element)
-	{
+
+	public static void switchToFrame(WebDriver driver, WebElement element) {
 		try {
-			
+
 			driver.switchTo().frame(element);
-			
+
 			/*
 			 * List<WebElement> frames=driver.findElements(By.tagName("iframe")); int
 			 * count=frames.size();
@@ -270,9 +355,9 @@ public class SeleniumUtils {
 		}
 		return titleText;
 	}
-	
+
 	public String getTextOfElement(WebDriver driver, WebElement element) throws Exception {
-		String titleText = "";		
+		String titleText = "";
 		try {
 			titleText = element.getText();
 		} catch (Exception e) {
@@ -280,18 +365,16 @@ public class SeleniumUtils {
 		}
 		return titleText;
 	}
-	
-	public String getAttributeValue(WebDriver driver, WebElement element, String attributeValue)
-	{
-		String textOfAttributeValue="";
+
+	public String getAttributeValue(WebDriver driver, WebElement element, String attributeValue) {
+		String textOfAttributeValue = "";
 		try {
-			textOfAttributeValue=element.getAttribute(attributeValue);
+			textOfAttributeValue = element.getAttribute(attributeValue);
 		} catch (Exception e) {
 			throw e;
 		}
 		return textOfAttributeValue;
 	}
-	
 
 	public boolean isElementDisplayed(WebDriver driver, By locator) throws Exception {
 		WebElement element;
@@ -325,12 +408,11 @@ public class SeleniumUtils {
 			throw e;
 		}
 	}
-	
-	public static void handleAlertPopUpWindow(WebDriver driver)
-	{
+
+	public static void handleAlertPopUpWindow(WebDriver driver) {
 		Alert alert;
 		try {
-			alert=driver.switchTo().alert();
+			alert = driver.switchTo().alert();
 			alert.dismiss();
 		} catch (Exception e) {
 			throw e;
@@ -384,7 +466,7 @@ public class SeleniumUtils {
 		} catch (Exception e) {
 			throw e;
 		}
-	}	
+	}
 
 	public static void waitAndClick(WebDriver driver, WebElement iwebElement, int time) throws InterruptedException {
 		for (int i = 0; i <= time; i++) {
@@ -431,10 +513,8 @@ public class SeleniumUtils {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	public static void enterTextInTextBox(WebDriver driver, WebElement element, int waitInSeconds, String textValue)
-	{
+
+	public static void enterTextInTextBox(WebDriver driver, WebElement element, int waitInSeconds, String textValue) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, waitInSeconds);
 			wait.until(ExpectedConditions.visibilityOf(element));
@@ -443,12 +523,11 @@ public class SeleniumUtils {
 			throw e;
 		}
 	}
-	
-	public static void escMethod(WebDriver driver)
-	{
+
+	public static void escMethod(WebDriver driver) {
 		Actions action;
 		try {
-			action=new Actions(driver);
+			action = new Actions(driver);
 			action.sendKeys(Keys.ESCAPE).build().perform();
 		} catch (Exception e) {
 			throw e;
@@ -474,50 +553,38 @@ public class SeleniumUtils {
 		}
 		return textList;
 	}
-	
+
 	/*
-	public static void checkIfElementBecomeDecay(WebDriver driver, WebElement element)
-	{
-		WebDriverWait wait=new WebDriverWait(driver, 50);
-		boolean flag=false;
-		boolean f=false;
+	 * public static void checkIfElementBecomeDecay(WebDriver driver, WebElement
+	 * element) { WebDriverWait wait=new WebDriverWait(driver, 50); boolean
+	 * flag=false; boolean f=false; try {
+	 * 
+	 * f=wait.until(ExpectedConditions.not(ExpectedConditions.stalenessOf(element)))
+	 * ;
+	 * 
+	 * if(!f) { driver.findElement(By.tagName("img")); flag=true; }
+	 * 
+	 * } catch (Exception e) { throw e; } }
+	 */
+
+	public static WebElement staleElementHandle(WebDriver driver, WebElement element, By locator) {
 		try {
-			
-			f=wait.until(ExpectedConditions.not(ExpectedConditions.stalenessOf(element)));
-			
-			if(!f)
-			{
-				driver.findElement(By.tagName("img"));
-				flag=true;
-			}
-			
-		} catch (Exception e) {
-			throw e;
-		}		
-	} 
-	*/
-	
-	public static WebElement staleElementHandle(WebDriver driver, WebElement element, By locator)
-	{
-		try {
-			// Check visibility. If reference is not stale, it will return the same referenced. Otherwise it will go to catch.
+			// Check visibility. If reference is not stale, it will return the same
+			// referenced. Otherwise it will go to catch.
 			element.isDisplayed();
 			return element;
-			
+
 			// Relocate element in catch and return
-		}catch(StaleElementReferenceException e)
-		{
+		} catch (StaleElementReferenceException e) {
 			return driver.findElement(locator);
-			
-			
-		}catch(Exception e)
-		{
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
-		
+
 	}
-	
+
 	public static boolean validatePhoneNumber(String phoneNo) {
 
 		// validate phone numbers of format "1234567890"

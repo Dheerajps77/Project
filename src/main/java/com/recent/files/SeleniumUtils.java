@@ -56,7 +56,8 @@ public class SeleniumUtils {
 
 	public static void switchWindowByIndex(WebDriver driver, int windowno) {
 		Set<String> window = driver.getWindowHandles();
-		driver.switchTo().window(window.toArray()[windowno].toString());
+		String totalWindowCount=window.toArray()[windowno].toString();
+		driver.switchTo().window(totalWindowCount);
 	}
 
 	public static void closeCurrentBrowserTab(WebDriver driver) {

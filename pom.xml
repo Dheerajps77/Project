@@ -140,11 +140,10 @@
 			<version>1.5</version>
 		</dependency>
 
-		<dependency>
+	<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.9.9</version>
-			<scope>compile</scope>
+			<version>7.4.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -163,6 +162,13 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>htmlunit-driver</artifactId>
 			<version>2.20</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>5.3.1</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
