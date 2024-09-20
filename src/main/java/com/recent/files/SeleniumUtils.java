@@ -20,6 +20,10 @@ import com.investaSolutions.base.*;
 
 public class SeleniumUtils {
 
+	
+	static final int n=10;
+	private static final String str="Hi";
+	
 	public static PropertiesManager properties = PropertiesManager.getInstance();	
 
 	public static void turnOffImplicitWaits(WebDriver driver) {

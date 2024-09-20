@@ -27,7 +27,6 @@ public class BrowserFactoryPatterns {
 			if (driver == null) {
 				driver = new FirefoxDriver();
 				drivers.put("Firefox", driver);
-				
 			}
 			break;
 		case "IE":

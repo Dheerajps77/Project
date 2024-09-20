@@ -33,6 +33,11 @@ public class SSLCertificateHandling {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setAcceptInsecureCerts(true);
         chromeOptions.setCapability("acceptSslCerts", true);
+        chromeOptions.addArguments("--disable-extensions");
+        chromeOptions.addArguments("window-size=1200x600");
+        chromeOptions.addArguments("--incognito");
+        chromeOptions.addArguments("--disable-notifications");
+        chromeOptions.addArguments("user-agent=Custom User Agent");
         return new ChromeDriver(chromeOptions);
     }
 

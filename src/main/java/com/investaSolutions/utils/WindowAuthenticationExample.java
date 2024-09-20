@@ -10,15 +10,15 @@ public class WindowAuthenticationExample {
 	public static void main(String[] args) {
 		// Handle window authentication for Chrome
 		WebDriver chromeDriver = getChromeDriver();
-		handleWindowAuthentication(chromeDriver, "your_username", "your_password", "https://yourwebsite.com");
+		handleWindowAuthentication(chromeDriver, "admin", "admin", "https://yourwebsite.com");
 
 		// Handle window authentication for Firefox
 		WebDriver firefoxDriver = getFirefoxDriver();
-		handleWindowAuthentication(firefoxDriver, "your_username", "your_password", "https://yourwebsite.com");
+		handleWindowAuthentication(firefoxDriver, "admin", "admin", "the-internet.herokuapp.com/basic_auth");
 
 		// Handle window authentication for Edge
 		WebDriver edgeDriver = getEdgeDriver();
-		handleWindowAuthentication(edgeDriver, "your_username", "your_password", "https://yourwebsite.com");
+		handleWindowAuthentication(edgeDriver, "admin", "admin", "the-internet.herokuapp.com/basic_auth");
 	}
 
 	// Method to instantiate Chrome WebDriver
@@ -39,6 +39,8 @@ public class WindowAuthenticationExample {
 		return new EdgeDriver();
 	}
 
+	// http://the-internet.herokuapp.com/basic_auth
+	
 	// Method to handle window authentication
 	public static void handleWindowAuthentication(WebDriver driver, String username, String password, String url) {
 		String urlWithAuth = "http://" + username + ":" + password + "@" + url;

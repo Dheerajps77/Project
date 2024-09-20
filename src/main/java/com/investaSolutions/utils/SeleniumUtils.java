@@ -189,7 +189,7 @@ public class SeleniumUtils {
 		String textValue = "";
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			textValue = (String) js.executeScript("return arguments[0].text;", element);
+			textValue = (String) js.executeScript("	", element);
 
 		} catch (Exception e) {
 			throw e;
@@ -612,6 +612,11 @@ public class SeleniumUtils {
 	public static void zoomIn(WebDriver driver, double zoomFactor) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("document.body.style.zoom='" + (zoomFactor * 100) + "%'");
+		
+		
+		Actions actions=new Actions(driver);
+		actions.contextClick();
+		actions.contextClick(clickOnElementUsingJSE(driver, By.xpath("")));
 	}
 
 	// Method to zoom out
